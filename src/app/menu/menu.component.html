@@ -6,9 +6,8 @@
   <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
     <ul class="navbar-nav mr-auto d-flex align-items-center">
       <li class="nav-item active">
-        <a href="https://imgur.com/OrgfKK4"><img src="https://i.imgur.com/OrgfKK4.jpg" title="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle" /></a>      </li>
-      <li class="nav-item pl-3">
-       <p class="m-0 font-weight-cold text-white fs-16">Nome do Usuario</p>
+        <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">      <li class="nav-item pl-3">
+       <p class="m-0 font-weight-cold text-white fs-16">olá, {{nome}}</p>
       </li>
 
       <li class="nav-item pl-3">
@@ -19,7 +18,7 @@
 
     <ul class="navbar-nav ml-auto d-flex align-items-center">
       <li class="nav-item pl-3">
-        <a class="m-0 font-weight-cold text-white fs-16">Sair <i class="fad fa-sign-out-alt" aria-hidden="true"></i></a>
+        <a (click)="sair()" class="m-0 font-weight-cold text-white fs-16">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a>
        </li>
     </ul>
 
