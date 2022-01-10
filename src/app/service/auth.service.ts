@@ -1,11 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from './../../environments/environment.prod';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Usuario } from '../model/Usuario';
 import { UsuarioLogar } from '../model/UsuarioLogar';
-import { Usuario } from "../model/Usuario";
-import { environment } from 'src/environments/environment.prod';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -16,29 +14,27 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  entrar(userlogin:UsuarioLogar):Observable<UsuarioLogar>{
-    return this.http.post<UsuarioLogar>('http://localhost:8080/usuarios/logar',userlogin)
-
+  entrar(userLogin: UsuarioLogar): Observable<UsuarioLogar>{
+    return this.http.post<UsuarioLogar>('http://localhost:8080/usuarios/logar', userLogin)
   }
 
-  cadastrar(user:Usuario):Observable<Usuario>{
-return this.http.post<Usuario>('http://localhost:8080/usuarios/cadastrar',user)
+  cadastrar(user: Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>('http://localhost:8080/usuarios/cadastrar', user)
   }
+
+  getByIdUsuario(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`)
+  }
+
 
   logado(){
-    let ok : boolean = false
+    let ok: boolean = false
 
     if (environment.token != ''){
       ok = true
     }
-    
+
     return ok
   }
 
-
 }
-
-
-
-
-
